@@ -45,6 +45,11 @@ it('expect value to be same', () => {
     //expect([2, 3, 4]).toInclude(5);  // this will fail as 5 is not in the array.
     //expect([2, 3, 4]).toInclude(4);  // this will pass as 4 is in the array; 
     // we can do the opposite of the above statement by usiing Exclude method.
-    expect([2, 3, 4]).toExclude(5);   // this will pass as 5 is not avaialbe in the array.
+    //expect([2, 3, 4]).toExclude(5);   // this will pass as 5 is not avaialbe in the array.
     // expect([2, 3, 4]).toExclude(4);   // this will fail as 4 is  avaialbe in the array.
-})
+    expect({
+        name: 'Raghu',
+        age: 41,
+        location: 'mountion house'
+    }).toInclude({ age: 41 })
+});
