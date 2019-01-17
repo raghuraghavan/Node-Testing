@@ -53,3 +53,33 @@ it('expect value to be same', () => {
         location: 'mountion house'
     }).toInclude({ age: 41 })
 });
+
+it('expect first name & second name from the user object', () => {
+    var user = {
+        firstName: '', lastName: ''
+    }
+    var result = utils.setName(user, 'Nithya Raghu');
+    expect(result)
+        .toBeA('object')
+        .toEqual({ firstName: 'Nithya', lastName: 'Raghu' })
+});
+
+// parameter "waitTillDone" is to tell mocha this is an async operation and has to wait till the 
+// execution of the of method, otherwise async methods will be call & test will allways pass.
+// note:--> "waitTillDone" -- is an custom name, it can be any thing.
+it('it should add two number async', (waitTillDone) => {
+    utils.addAsync(4, 3, (sum) => {
+        expect(sum).toBeA('number').toBe(7);
+        waitTillDone();
+    });
+});
+
+it('Should square a number Async', (waitTillDone) => {
+    utils.squareAsync(10, (sum) => {
+        expect(sum)
+            .toBeA('number')
+            .toBe(100);
+        waitTillDone();
+    });
+});
+
